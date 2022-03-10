@@ -7,6 +7,8 @@ COPY package*.json /app/
 
 RUN npm cache clear --force
 
+RUN npm install -g next
+
 RUN npm install
 
 COPY . /app

@@ -11,6 +11,7 @@ RUN npm install -g next typescript @types/react @types/node
 
 RUN npm install
 
+RUN npm install --save-dev typescript @types/react @types/node
 
 COPY . /app
 

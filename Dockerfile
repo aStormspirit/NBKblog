@@ -1,24 +1,16 @@
 # Install dependencies only when needed
-FROM node:17-alpine3.14
+FROM node:17-buster
 
 WORKDIR /app
 
 COPY package*.json /app/
 
-RUN npm cache clear --force
-
-RUN npm install -g next typescript @types/react @types/node
-
 RUN npm install
-
-RUN npm install --save-dev typescript @types/react @types/node
 
 COPY . /app
 
 RUN npm run build
 
-RUN ls -a
-
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+ENTRYPOINT ["npm", "run", "start"]

@@ -7,9 +7,10 @@ COPY package*.json /app/
 
 RUN npm cache clear --force
 
-RUN npm install -g next
+RUN npm install -g next typescript @types/react @types/node
 
 RUN npm install
+
 
 COPY . /app
 

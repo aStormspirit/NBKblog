@@ -22,14 +22,12 @@ interface Props {
 function Post({post}: Props) {
   const [submit, setSubmit] = useState(false)
   const {register, handleSubmit, formState: {errors}} = useForm<IFormInput>()
-  console.log(post)
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     fetch('/api/createComment', {
       method: 'POST',
       body: JSON.stringify(data),
     }).then(() => {
-      console.log(data)
       setSubmit(true)
     }).catch((err) => {
       console.log(err)
